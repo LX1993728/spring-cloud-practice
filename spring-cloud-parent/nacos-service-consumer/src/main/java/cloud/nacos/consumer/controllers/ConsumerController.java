@@ -1,4 +1,4 @@
-package cloud.nacos.registry.controllers;
+package cloud.nacos.consumer.controllers;
 
 import cloud.common.base.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class ConsumerController {
 
     @GetMapping(value = "/echo/{str}")
     public String echo(@PathVariable("str") String string) {
-        return restTemplate.getForObject("http://nacos-service-provider/echo/" + string, String.class);
+        return restTemplate.getForObject("http://NacosServiceProvider/echo/" + string, String.class);
 
     }
     

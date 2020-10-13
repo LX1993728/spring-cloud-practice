@@ -1,4 +1,4 @@
-package cloud.nacos.registry.controllers;
+package cloud.nacos.consumer.controllers;
 
 import cloud.common.base.User;
 import org.springframework.stereotype.Component;

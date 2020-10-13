@@ -1,4 +1,4 @@
-package cloud.nacos.registry.controllers;
+package cloud.nacos.consumer.controllers;
 
 import cloud.common.base.User;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "nacos-service-provider", fallback = ProviderClientFallback.class)
+@FeignClient(name = "NacosServiceProvider", fallback = ProviderClientFallback.class)
 public interface ProviderCient {
     @GetMapping(value = "/echo/{string}")
     public String getStr(@PathVariable String string);

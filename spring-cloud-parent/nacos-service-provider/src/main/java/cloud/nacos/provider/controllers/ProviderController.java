@@ -1,4 +1,4 @@
-package cloud.nacos.registry.controllers;
+package cloud.nacos.provider.controllers;
 
 import cloud.common.base.User;
 import org.springframework.web.bind.annotation.*;

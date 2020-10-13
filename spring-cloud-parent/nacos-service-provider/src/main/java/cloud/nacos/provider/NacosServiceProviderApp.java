@@ -1,4 +1,4 @@
-package cloud.nacos.registry;
+package cloud.nacos.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

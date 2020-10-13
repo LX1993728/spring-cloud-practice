@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nacos-service-provider</artifactId>
+    <artifactId>zuul-proxy-service</artifactId>
 
     <dependencies>
         <dependency>
@@ -37,6 +37,12 @@
             <version>${alibaba.cloud.version}</version>
         </dependency>
 
+        <!--   添加路由网关zuul的相关依赖     -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+
         <!-- 整合swagger文档相关 -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -48,6 +54,7 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
         </dependency>
+
     </dependencies>
 
 </project>
