@@ -59,6 +59,16 @@
             <version>${swagger.version}</version>
         </dependency>
 
+        <!-- 整合hystrix 熔断器相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <!-- 添加此依赖后才能访问端点 /health 以及/hystrix.stream -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
     </dependencies>
 

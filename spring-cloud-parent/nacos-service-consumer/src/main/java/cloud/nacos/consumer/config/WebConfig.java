@@ -1,4 +1,4 @@
-package cloud.zuul.proxy.config;
+package cloud.nacos.consumer.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,5 +19,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
-
 }

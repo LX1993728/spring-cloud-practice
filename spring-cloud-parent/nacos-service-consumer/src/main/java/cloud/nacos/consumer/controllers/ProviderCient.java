@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "NacosServiceProvider", fallback = ProviderClientFallback.class)
+@FeignClient(name = "NacosServiceProvider", fallback = ProviderHystrixFallback.class)
 public interface ProviderCient {
     @GetMapping(value = "/echo/{string}")
     public String getStr(@PathVariable String string);

@@ -11,6 +11,10 @@
 
     <artifactId>zuul-proxy-service</artifactId>
 
+    <properties>
+        <ratelimiter.version>2.2.0.RELEASE</ratelimiter.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.cloud.parent</groupId>
@@ -53,6 +57,30 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- 整合RateLimiter限流组件 -->
+        <dependency>
+            <groupId>com.marcosbarbero.cloud</groupId>
+            <artifactId>spring-cloud-zuul-ratelimit</artifactId>
+            <version>${ratelimiter.version}</version>
+        </dependency>
+
+        <!-- 整合springdataJPA 作为RateLimiter的数据存储 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 添加此依赖后才能访问端点 /health 以及/hystrix.stream -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
     </dependencies>

@@ -4,7 +4,7 @@ import cloud.common.base.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProviderClientFallback implements ProviderCient {
+public class ProviderHystrixFallback implements ProviderCient {
     @Override
     public String getStr(String string) {
         return null;

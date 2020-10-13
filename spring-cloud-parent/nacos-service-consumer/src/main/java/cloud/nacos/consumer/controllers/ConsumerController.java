@@ -1,6 +1,7 @@
 package cloud.nacos.consumer.controllers;
 
 import cloud.common.base.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -14,9 +15,17 @@ public class ConsumerController {
     private ProviderCient providerCient;
 
     @GetMapping(value = "/echo/{str}")
+    /**
+     * @HystrixCommand(fallbackMethod = "echoFallback")
+     * 如果不设置fallback则走全局回退
+     */
     public String echo(@PathVariable("str") String string) {
         return restTemplate.getForObject("http://NacosServiceProvider/echo/" + string, String.class);
+    }
 
+
+    public String echoFallback( String string){
+        return "{}";
     }
     
     @GetMapping("/post_user")
