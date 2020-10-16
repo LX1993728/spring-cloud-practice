@@ -11,17 +11,14 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private ProviderCient providerCient;
-
     @GetMapping(value = "/echo/{str}")
-    /**
-     * @HystrixCommand(fallbackMethod = "echoFallback")
-     * 如果不设置fallback则走全局回退
-     */
+    @HystrixCommand(fallbackMethod = "echoFallback")
     public String echo(@PathVariable("str") String string) {
         return restTemplate.getForObject("http://NacosServiceProvider/echo/" + string, String.class);
     }
+
+    @Autowired
+    private ProviderCient providerCient;
 
 
     public String echoFallback( String string){

@@ -9,18 +9,25 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nacos-service-provider</artifactId>
+    <artifactId>hystrix-dashboard-service</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.cloud.parent</groupId>
-            <artifactId>common-base</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-
+        <!--  需要将内嵌的Tomcat换成jetty 否则admin-server会报错
+        java.lang.IllegalStateException: Calling [asyncError()] is not valid for a request with Async state [MUST_DISPATCH]
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
 
         <!-- 配置nacos配置中心依赖 -->
@@ -37,16 +44,10 @@
             <version>${alibaba.cloud.version}</version>
         </dependency>
 
-        <!-- 整合swagger文档相关 -->
+        <!-- actuator几乎是微服务必备的依赖 -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!-- 整合hystrix 熔断器相关 -->
@@ -54,24 +55,17 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
-        <!-- 添加此依赖后才能访问端点 /health 以及/hystrix.stream -->
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
         </dependency>
 
-        <!--   springboot admin client     -->
         <dependency>
-            <groupId>org.jolokia</groupId>
-            <artifactId>jolokia-core</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-turbine</artifactId>
         </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${springboot-admin.version}</version>
-        </dependency>
+
     </dependencies>
-
-
 
 </project>
