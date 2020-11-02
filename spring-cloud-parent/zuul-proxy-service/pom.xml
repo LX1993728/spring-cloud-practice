@@ -13,6 +13,7 @@
 
     <properties>
         <ratelimiter.version>2.2.0.RELEASE</ratelimiter.version>
+        <skywalking.version>8.2.0</skywalking.version>
     </properties>
 
     <dependencies>
@@ -92,6 +93,19 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>${springboot-admin.version}</version>
+        </dependency>
+
+        <!--  在日志中打印追踪的探针信息      -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>${skywalking.version}</version>
+        </dependency>
+        <!--   用于手动添加需要追踪的信息traceID和spanID     -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${skywalking.version}</version>
         </dependency>
 
     </dependencies>

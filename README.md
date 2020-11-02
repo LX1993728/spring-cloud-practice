@@ -31,6 +31,7 @@
     zuul.routes.HystrixDashboard.strip-prefix=false
     zuul.routes.HystrixDashboard.path=/HystrixDashboard/**
  ```
+ - 另外需要注意的是zuul是不支持转发长连接请求的
 
 ### 待解决问题
  - zuul全局回退失效问题 
