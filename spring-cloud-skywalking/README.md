@@ -8,7 +8,7 @@
 ### 本地调试参数
 ```
 
- -javaagent:D:\idea_springcloud_space\spring-cloud-practice\spring-cloud-skywalking\agent\skywalking-agent.jar
+ -javaagent:D:\idea_springcloud_space\spring-sentinel-practice\spring-sentinel-skywalking\agent\skywalking-agent.jar
  -Dskywalking.collector.backend_service=localhost:11800
  -Dskywalking.agent.service_name=XXX
 ```

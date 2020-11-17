@@ -1,4 +1,4 @@
-# spring-cloud-practice
+# spring-sentinel-practice
 
 ### 注意事项-1: 服务命名
  - spring5.x 服务调用时已不支持服务名带下划线.
@@ -24,7 +24,7 @@
   ```
     server.servlet.context-path=/${spring.application.name} 
     # 配置context-path后 需要在服务发现的元数据中配置contextPath属性
-    spring.cloud.nacos.discovery.metadata.management.context-path=${server.servlet.context-path}/actuator
+    spring.sentinel.nacos.discovery.metadata.management.context-path=${server.servlet.context-path}/actuator
   ```
  - 然后再zuul网关服务中做如下配置
  ```
