@@ -30,7 +30,6 @@ public class RateLimitController {
      * @return
      */
     @GetMapping("/byUrl")
-  //  @SentinelResource(value = "byUrl", blockHandler = "handleException")
     public CommonResult byUrl(){
         return new CommonResult("按url限流", 200);
     }
