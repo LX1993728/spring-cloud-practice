@@ -44,6 +44,13 @@
             <version>${alibaba.cloud.version}</version>
         </dependency>
 
+        <!--   将sentinel中的限流规则持久托管在nacos中     -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
         <!-- 添加feign服务通信依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -67,6 +74,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
+        <!--   非常全的java工具类库     -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+
 
         <!--   springboot admin client     -->
         <dependency>

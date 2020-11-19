@@ -30,7 +30,7 @@ public class CircleBreakerController {
     }
 
     @RequestMapping("/fallbackException/{id}")
-    @SentinelResource(value = "fallbackException",fallback = "handleFallback2", exceptionsToIgnore = {NullPointerException.class})
+    @SentinelResource(value = "fallbackException",fallback = "handleFallback2" /*,exceptionsToIgnore = {NullPointerException.class} */)
     public CommonResult fallbackException(@PathVariable Long id) {
         if (id == 1) {
             throw new IndexOutOfBoundsException();
