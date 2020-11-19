@@ -33,7 +33,7 @@ public class SkyWalkingController {
     private User trace(String name) {
         log.info("如果此方法没有被SkyWalking收集，但是又需要被收集到，可以加上@Trace注解");
         User user = new User();
-        user.setUserName("创建的名字");
+        user.setUsername("创建的名字");
         return user;
     }
 
