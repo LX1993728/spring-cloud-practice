@@ -1,4 +1,4 @@
-package sentinel.zuul.proxy.controllers;
+package sentinel.gateway.proxy.controllers;
 
 import sentinel.common.base.User;
 import lombok.extern.slf4j.Slf4j;

@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sentinel-zuul-service</artifactId>
+    <artifactId>sentinel-gateway-service</artifactId>
 
     <properties>
-        <ratelimiter.version>2.2.0.RELEASE</ratelimiter.version>
         <skywalking.version>8.2.0</skywalking.version>
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -21,11 +21,6 @@
             <groupId>com.cloud.parent</groupId>
             <artifactId>sentinel-common-base</artifactId>
             <version>${parent.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!-- 配置nacos配置中心依赖 -->
@@ -42,10 +37,24 @@
             <version>${alibaba.cloud.version}</version>
         </dependency>
 
-        <!--   添加路由网关zuul的相关依赖     -->
+        <!--   添加路由网关gateway的相关依赖     -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!--    引入sentinel依赖    -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <version>${alibaba.cloud.version}</version>
+        </dependency>
+
+        <!--sentinel和gateway整合-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+            <version>${alibaba.cloud.version}</version>
         </dependency>
 
         <!-- 整合swagger文档相关 -->
@@ -60,23 +69,6 @@
             <version>${swagger.version}</version>
         </dependency>
 
-        <!-- 整合RateLimiter限流组件 -->
-        <dependency>
-            <groupId>com.marcosbarbero.cloud</groupId>
-            <artifactId>spring-cloud-zuul-ratelimit</artifactId>
-            <version>${ratelimiter.version}</version>
-        </dependency>
-
-        <!-- 整合springdataJPA 作为RateLimiter的数据存储 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
 
         <!-- 添加此依赖后才能访问端点 /health 以及/hystrix.stream -->
         <dependency>

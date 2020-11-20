@@ -1,4 +1,4 @@
-package sentinel.zuul.proxy.config;
+package sentinel.gateway.proxy.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,15 +1,13 @@
-package sentinel.zuul.proxy;
+package sentinel.gateway.proxy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableZuulProxy
-public class SentinelZuulServiceApp {
+public class SentinelGatewayApp {
     public static void main(String[] args){
-        SpringApplication.run(SentinelZuulServiceApp.class);
+        SpringApplication.run(SentinelGatewayApp.class);
     }
 }
