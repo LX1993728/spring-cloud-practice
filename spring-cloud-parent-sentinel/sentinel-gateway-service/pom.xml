@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!--   Gateway 网关的使用依赖此webflux, 如果不加入会在使用过程中出现空指针和非法异常     -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.cloud.parent</groupId>
             <artifactId>sentinel-common-base</artifactId>
