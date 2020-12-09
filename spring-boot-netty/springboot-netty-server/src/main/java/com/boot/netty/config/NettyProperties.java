@@ -28,5 +28,13 @@ public class NettyProperties {
     private boolean keepAlive;
 
     @NotNull
+    @Min(10)
+    private long readLimit;
+
+    @NotNull
+    @Min(10)
+    private long writeLimit;
+
+    @NotNull
     private int backlog;
 }

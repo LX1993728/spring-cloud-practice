@@ -8,8 +8,12 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.traffic.GlobalTrafficShapingHandler;
+import io.netty.util.concurrent.DefaultEventExecutorGroup;
+import io.netty.util.concurrent.EventExecutorGroup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -53,6 +57,13 @@ public class NettyConfiguration {
     @Bean
     public ChannelRepository channelRepository(){
         return new ChannelRepository();
+    }
+
+    @Bean
+    @RefreshScope // 在Bean上添加RefreshScope可以刷新Bean
+    public GlobalTrafficShapingHandler trafficShapingHandler(){
+        final EventExecutorGroup executorGroup = new DefaultEventExecutorGroup(Runtime.getRuntime().availableProcessors() * 2);
+        return new GlobalTrafficShapingHandler(executorGroup, nettyProperties.getWriteLimit(), nettyProperties.getReadLimit());
     }
 
 }
